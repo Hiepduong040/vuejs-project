@@ -12,7 +12,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(category, index) in paginatedCategories" :key="category.id">
+          <tr v-for="(category, index) in categories" :key="category.id">
             <td class="px-2 py-2 border">{{ index + 1 + (currentPage - 1) * pageSize }}</td>
             <td class="px-2 py-2 border">{{ category.category_name }}</td>
             <td class="px-2 py-2 border">
@@ -36,7 +36,7 @@
           <div class="space-y-4">
             <input v-model="category.category_name" type="text" placeholder="Tên danh mục" class="w-full p-2 border border-gray-300 rounded-md" />
             <textarea v-model="category.description" placeholder="Mô tả" class="w-full p-2 border border-gray-300 rounded-md"></textarea>
-            <input v-model="category.image" type="text" placeholder="Ảnh minh họa" class="w-full p-2 border border-gray-300 rounded-md" />
+            <ImageInput :image="category.image" @handleImange="handleImage"></ImageInput>
           </div>
           <div class="mt-4 flex justify-end">
             <button type="button" @click="showModal = false" class="px-4 py-2 bg-gray-300 rounded-md">Hủy</button>
@@ -45,6 +45,7 @@
         </form>
       </div>
     </div>
+    
   </section>
 </template>
 
@@ -52,7 +53,7 @@
 import { computed, ref, onMounted } from "vue";
 import { useStore } from "vuex";
 import Swal from "sweetalert2";
-
+import ImageInput from "../../../components/inputImage/ImageInput.vue";
 const store = useStore();
 const currentPage = ref(1);
 const pageSize = ref(5);
@@ -64,13 +65,15 @@ const category = ref({ category_name: "", description: "", image: "" });
 onMounted(() => {
   store.dispatch("fetchAllCategories");
 });
-
+const handleImage=(link)=>{
+    category.value.image=link;
+  }
 // Lấy danh sách danh mục từ store
 const categories = computed(() => store.state.category.filteredCategories);
-const paginatedCategories = computed(() => {
-  const start = (currentPage.value - 1) * pageSize.value;
-  return categories.value.slice(start, start + pageSize.value);
-});
+// const paginatedCategories = computed(() => {
+//   const start = (currentPage.value - 1) * pageSize.value;
+//   return categories.value.slice(start, start + pageSize.value);
+// });
 
 // Hàm xóa danh mục
 const deleteCategory = (categoryId) => {

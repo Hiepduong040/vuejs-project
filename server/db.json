@@ -178,9 +178,27 @@
     {
       "category_name": "Sách khoa học - Công nghệ",
       "description": "Tài liệu về các lĩnh vực khoa học, công nghệ tiên tiến và ứng dụng trong đời sống.",
-      "image": "https://cf.shopee.vn/file/bfbd513397e64320147797ab48081a03",
+      "image": "https://firebasestorage.googleapis.com/v0/b/eco-vuejs.appspot.com/o/images%2F8f63745a-5d5b-4e3e-8572-c7fbbcfa1727.jpg?alt=media&token=e2894131-209b-48d8-b378-4be55b014b67",
       "status": true,
       "id": 7
+    },
+    {
+      "category_name": "121",
+      "description": "122",
+      "image": "https://firebasestorage.googleapis.com/v0/b/eco-vuejs.appspot.com/o/images%2F458715202_1756808561723807_8228659414502888058_n.jpg?alt=media&token=f5683b57-99ef-4fe6-a43e-779255a97a96",
+      "id": 8
+    },
+    {
+      "category_name": "1",
+      "description": "1",
+      "image": "https://firebasestorage.googleapis.com/v0/b/eco-vuejs.appspot.com/o/images%2F459486196_829857165965822_2807614676903728298_n.jpg?alt=media&token=94ba8280-7737-487f-8d3c-6fb0212ab8c2",
+      "id": 9
+    },
+    {
+      "category_name": "1",
+      "description": "1",
+      "image": "",
+      "id": 10
     }
   ],
   "products": [

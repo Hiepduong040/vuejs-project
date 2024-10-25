@@ -27,12 +27,7 @@
               placeholder="Mô tả"
               class="w-full p-2 border border-gray-300 rounded-md"
             ></textarea>
-            <input
-              v-model="category.image"
-              type="text"
-              placeholder="Ảnh minh họa"
-              class="w-full p-2 border border-gray-300 rounded-md"
-            />
+            <ImageInput :image="category.image" @handleImange="handleImage"></ImageInput>
           </div>
           <div class="mt-4 flex justify-end">
             <button
@@ -56,31 +51,28 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { reactive,ref } from "vue";
 import { useStore } from "vuex";
-
+import ImageInput from "../../../components/inputImage/ImageInput.vue";
 // Khởi tạo store và các biến cần thiết
 const store = useStore();
 const showModal = ref(false);
 const category = ref({ category_name: "", description: "", image: "" });
 const isEditing = ref(false);
-
+const handleImage=(link)=>{
+  category.value.image=link;
+}
 // Hàm xử lý khi gửi form
 const handleSubmit = () => {
+  
   if (isEditing.value) {
-    store.dispatch("updateCategory", category.value);
+    store.dispatch("updateCategory", {...category.value});
   } else {
-    store.dispatch("addCategory", category.value);
+    store.dispatch("addCategory",{...category.value});
   }
   showModal.value = false; // Đóng modal sau khi gửi
 };
 
-// Hàm để chỉnh sửa danh mục
-const editCategory = (categoryToEdit) => {
-  category.value = { ...categoryToEdit };
-  isEditing.value = true;
-  showModal.value = true;
-};
 </script>
 
 <style scoped>

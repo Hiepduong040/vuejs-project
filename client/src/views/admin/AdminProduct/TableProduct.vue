@@ -32,20 +32,7 @@
     </table>
   
     <div class="flex justify-between items-center mt-4">
-      <div>
-        <label for="pageSize" class="mr-2">Số sản phẩm mỗi trang:</label>
-        <select v-model="pageSize" @change="updatePageSize" class="border rounded p-1">
-          <option value="3">3</option>
-          <option value="5">5</option>
-          <option value="7">7</option>
-        </select>
-      </div>
-
-      <div>
-        <button @click="prevPage" :disabled="currentPage === 1" class="px-2 py-1 bg-gray-200 rounded hover:bg-gray-300">Trang trước</button>
-        <span class="mx-2">Trang {{ currentPage }} / {{ totalPages }}</span>
-        <button @click="nextPage" :disabled="currentPage === totalPages" class="px-2 py-1 bg-gray-200 rounded hover:bg-gray-300">Trang sau</button>
-      </div>
+      <Pagination/>
     </div>
   
     <!-- Modal sửa sản phẩm -->
@@ -71,36 +58,12 @@
 import { computed, ref, onMounted, reactive } from 'vue';
 import { useStore } from 'vuex';
 import { getAllCategories } from "../../../api/categoryAPI";  
+import Pagination from '@/components/pagination/Pagination.vue';
 
 const store = useStore();
 const products = computed(() => store.getters.getProducts);
 const isEditModalOpen = ref(false);
 const editedProduct = ref({});
-
-// Pagination logic
-const currentPage = computed(() => store.state.product.currentPage);
-const pageSize = ref(store.state.product.pageSize);
-const totalPages = computed(() => store.getters.totalPages);
-
-const updatePageSize = () => {
-  store.dispatch('setPageSize', pageSize.value);
-};
-
-const prevPage = () => {
-  if (currentPage.value > 1) {
-    store.dispatch('setCurrentPage', currentPage.value - 1);
-  }
-};
-
-const nextPage = () => {
-  if (currentPage.value < totalPages.value) {
-    store.dispatch('setCurrentPage', currentPage.value + 1);
-  }
-};
-
-onMounted(() => {
-  store.dispatch('fetchProducts');
-});
 
 const openEditModal = (product) => {
   editedProduct.value = { ...product };
