@@ -1,4 +1,4 @@
-<template>
+ <template>
   <section class="p-6">
     <div class="overflow-x-auto mt-4">
       <table class="table-auto w-full border-collapse bg-white border border-gray-200">
@@ -12,7 +12,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr v-for="(category, index) in categories" :key="category.id">
+          <tr v-for="(category, index) in displayedCategories" :key="category.id">
             <td class="px-2 py-2 border">{{ index + 1 + (currentPage - 1) * pageSize }}</td>
             <td class="px-2 py-2 border">{{ category.category_name }}</td>
             <td class="px-2 py-2 border">
@@ -27,8 +27,8 @@
         </tbody>
       </table>
     </div>
-
-    <!-- Modal để chỉnh sửa/thêm danh mục -->
+    <PaginationCategories/>
+ 
     <div v-if="showModal" class="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center">
       <div class="bg-white p-6 rounded-lg shadow-lg max-w-md w-full">
         <h2 class="text-2xl font-bold mb-4">{{ isEditing ? "Chỉnh sửa danh mục" : "Thêm danh mục" }}</h2>
@@ -50,30 +50,48 @@
 </template>
 
 <script setup>
-import { computed, ref, onMounted } from "vue";
+import { computed, ref, onMounted, reactive } from "vue";
 import { useStore } from "vuex";
 import Swal from "sweetalert2";
 import ImageInput from "../../../components/inputImage/ImageInput.vue";
+import queryString from "query-string";
+import PaginationCategories from "./PaginationCategories.vue";
 const store = useStore();
 const currentPage = ref(1);
 const pageSize = ref(5);
 const showModal = ref(false);
 const isEditing = ref(false);
 const category = ref({ category_name: "", description: "", image: "" });
+const param = reactive({_page:1,_limit:5});
 
-// Lấy danh sách danh mục khi component được gắn vào
+
+
+// Fetch categories when the component is mounted
 onMounted(() => {
-  store.dispatch("fetchAllCategories");
+  store.dispatch("fetchAllCategories",queryString.stringify(param));
+  
 });
+
+// Computed properties
+const currentPageCategories = computed(() => store.state.category.currentPageCategories);
+const pageSizeCategories = computed(() => store.state.category.pageSizeCategories);
+const categories = computed(() => store.state.category.filteredCategories);
+
+// Displayed categories based on pagination
+const displayedCategories = computed(() => {
+  const start = (currentPageCategories.value - 1) * pageSizeCategories.value;
+  const end = start + pageSizeCategories.value;
+  return categories.value.slice(start, end);
+});
+
+
+
 const handleImage=(link)=>{
     category.value.image=link;
   }
 // Lấy danh sách danh mục từ store
-const categories = computed(() => store.state.category.filteredCategories);
-// const paginatedCategories = computed(() => {
-//   const start = (currentPage.value - 1) * pageSize.value;
-//   return categories.value.slice(start, start + pageSize.value);
-// });
+// const categories = computed(() => store.state.category.filteredCategories);
+
 
 // Hàm xóa danh mục
 const deleteCategory = (categoryId) => {
@@ -110,4 +128,5 @@ const handleSubmit = () => {
 </script>
 
 <style scoped>
-</style>
+</style> 
+

@@ -42,8 +42,20 @@
         <form @submit.prevent="handleUpdate">
           <input v-model="editedProduct.product_name" type="text" placeholder="Tên sản phẩm" class="w-full p-2 border" />
           <textarea v-model="editedProduct.description" placeholder="Mô tả" class="w-full p-2 border"></textarea>
+          <select v-model="editedProduct.categoryId" class="w-full p-2 border">
+            <option disabled value="">Chọn danh mục</option>
+            <option
+              v-for="category in categoriesList"
+              :key="category.id"
+              :value="category.id"
+            >
+              {{ category.category_name }}
+            </option>
+          </select>
+
           <input v-model="editedProduct.unit_price" type="text" placeholder="Giá" class="w-full p-2 border" />
           <input v-model="editedProduct.stock_quantity" type="text" placeholder="Số lượng" class="w-full p-2 border" />
+          <ImageInputProduct :image="editedProduct.image" @handleImange="handleImage"></ImageInputProduct>
           <div class="mt-4 flex justify-end">
             <button type="button" @click="closeEditModal" class="px-4 py-2 bg-gray-300 rounded">Hủy</button>
             <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded">Lưu</button>
@@ -59,12 +71,21 @@ import { computed, ref, onMounted, reactive } from 'vue';
 import { useStore } from 'vuex';
 import { getAllCategories } from "../../../api/categoryAPI";  
 import Pagination from '@/components/pagination/Pagination.vue';
-
+import ImageInputProduct from '@/components/inputImage/ImageInputProduct.vue';
 const store = useStore();
 const products = computed(() => store.getters.getProducts);
-const isEditModalOpen = ref(false);
-const editedProduct = ref({});
+console.log("product",products);
 
+const isEditModalOpen = ref(false);
+const editedProduct = ref({
+  product_name: "",
+  description: "",
+  unit_price: "",
+  stock_quantity: "",
+  image: [],
+  categoryId: "" // 
+});
+const categoriesIdList = ref([])
 const openEditModal = (product) => {
   editedProduct.value = { ...product };
   isEditModalOpen.value = true;
@@ -89,12 +110,8 @@ const handleUpdate = async () => {
 const categoriesList = reactive([]);
 
 const fetchCategories = async () => {
-  try {
     const response = await getAllCategories();
     categoriesList.push(...response.data);
-  } catch (error) {
-    console.error('Failed to fetch categories:', error);
-  }
 };
 
 const findNameCategory = (categoryId) => {
@@ -102,8 +119,17 @@ const findNameCategory = (categoryId) => {
   return findCategory ? findCategory.category_name : "Không xác định";
 };
 
+const getNameCategories = async ()=>{
+  const response = await getAllCategories();
+  categoriesIdList.value = response.data 
+}
+
+const handleImage=(link)=>{
+    editedProduct.value.image=link;
+  }
 onMounted(async () => {
   store.dispatch('fetchProducts');
+  await getNameCategories();
   await fetchCategories();
 });
 </script>
@@ -111,3 +137,4 @@ onMounted(async () => {
 <style scoped>
 /* Style cho component này */
 </style>
+

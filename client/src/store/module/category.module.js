@@ -9,6 +9,8 @@ const category = {
   state: {
     categories: [],
     filteredCategories: [],
+    currentPageCategories: 1,
+    pageSizeCategories: 5,
   },
   mutations: {
     setCategoriesMutations(state, categories) {
@@ -21,7 +23,7 @@ const category = {
     },
     addCategoryMutations(state, newCategory) {
       state.categories.push(newCategory);
-      state.filteredCategories.push(newCategory);
+      // state.filteredCategories.push(newCategory);
     },
     updateCategoryMutations(state, updatedCategory) {
       const index = state.categories.findIndex(cat => cat.id === updatedCategory.id);
@@ -35,6 +37,14 @@ const category = {
         cat.category_name.toLowerCase().includes(searchQuery.toLowerCase())
       );
     },
+    setPageSizeCategoriesMutations(state, newSize) {
+      state.pageSizeCategories = newSize;
+    },
+   
+    setCurrentPageCategoriesMutations(state, newPage) {
+      state.currentPageCategories = newPage;
+    },
+    
   },
   actions: {
     async fetchAllCategories({ commit }) {
@@ -56,6 +66,13 @@ const category = {
     searchCategories({ commit }, searchQuery) {
       commit('filteredCategoriesMutations', searchQuery);
     },
+    
+    setPageSizeCategories({ commit }, newSize) {
+      commit('setPageSizeCategoriesMutations', newSize);
+    },
+    setCurrentPageCategories({ commit }, newPage) {
+      commit('setCurrentPageCategoriesMutations', newPage);
+    },
   },
   getters: {
     totalCategories(state) {
@@ -66,3 +83,4 @@ const category = {
 };
 
 export default category;
+

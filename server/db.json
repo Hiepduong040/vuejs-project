@@ -178,26 +178,26 @@
     {
       "category_name": "Sách khoa học - Công nghệ",
       "description": "Tài liệu về các lĩnh vực khoa học, công nghệ tiên tiến và ứng dụng trong đời sống.",
-      "image": "https://firebasestorage.googleapis.com/v0/b/eco-vuejs.appspot.com/o/images%2F8f63745a-5d5b-4e3e-8572-c7fbbcfa1727.jpg?alt=media&token=e2894131-209b-48d8-b378-4be55b014b67",
+      "image": "https://firebasestorage.googleapis.com/v0/b/eco-vuejs.appspot.com/o/images%2FScreenshot%202024-10-15%20115110.png?alt=media&token=20fb715e-b8d5-4fab-95ca-8fae7635bfed",
       "status": true,
       "id": 7
     },
     {
-      "category_name": "121",
-      "description": "122",
-      "image": "https://firebasestorage.googleapis.com/v0/b/eco-vuejs.appspot.com/o/images%2F458715202_1756808561723807_8228659414502888058_n.jpg?alt=media&token=f5683b57-99ef-4fe6-a43e-779255a97a96",
+      "category_name": "1",
+      "description": "1",
+      "image": "https://firebasestorage.googleapis.com/v0/b/eco-vuejs.appspot.com/o/images%2F411162906_380711511130081_7823489149764153954_n.jpg?alt=media&token=af174ebc-f73c-4100-948e-8715c67ad455",
       "id": 8
     },
     {
-      "category_name": "1",
-      "description": "1",
-      "image": "https://firebasestorage.googleapis.com/v0/b/eco-vuejs.appspot.com/o/images%2F459486196_829857165965822_2807614676903728298_n.jpg?alt=media&token=94ba8280-7737-487f-8d3c-6fb0212ab8c2",
+      "category_name": "22",
+      "description": "2",
+      "image": "https://firebasestorage.googleapis.com/v0/b/eco-vuejs.appspot.com/o/images%2Fth.jpg?alt=media&token=dcd504a7-97a4-48c6-a6f3-f00b05aa3812",
       "id": 9
     },
     {
-      "category_name": "1",
-      "description": "1",
-      "image": "",
+      "category_name": "233",
+      "description": "23",
+      "image": "https://firebasestorage.googleapis.com/v0/b/eco-vuejs.appspot.com/o/images%2FScreenshot%202024-10-15%20115116.png?alt=media&token=e94402e7-38da-43c8-9574-f7bafe92ccc7",
       "id": 10
     }
   ],
@@ -286,9 +286,9 @@
       "product_name": "Đắc Nhân Tâm",
       "description": "Cuốn sách nổi tiếng về nghệ thuật giao tiếp và thành công trong cuộc sống.",
       "unit_price": "180000",
-      "stock_quantity": "12",
+      "stock_quantity": "123",
       "image": [
-        "https://example.com/images/dac_nhan_tam.jpg"
+        "https://firebasestorage.googleapis.com/v0/b/eco-vuejs.appspot.com/o/images%2FScreenshot%202024-10-15%20102819.png?alt=media&token=b951fe7a-461a-43ea-afa8-15b2bbd14eb8"
       ],
       "categoryId": "6",
       "created_at": "19/09/2024 16:30:00",
@@ -403,12 +403,56 @@
       ]
     },
     {
-      "product_name": "1",
-      "description": "",
-      "unit_price": "",
-      "stock_quantity": "",
-      "image": "",
-      "id": 10
+      "product_name": "223",
+      "description": "223",
+      "unit_price": "223",
+      "stock_quantity": "223",
+      "image": [
+        "https://firebasestorage.googleapis.com/v0/b/eco-vuejs.appspot.com/o/images%2FScreenshot%202024-10-16%20084829.png?alt=media&token=77ead474-0538-453c-b612-17d0e6360977"
+      ],
+      "id": 12,
+      "categoryId": 5
+    },
+    {
+      "product_name": "2",
+      "description": "2",
+      "unit_price": "2",
+      "stock_quantity": "2",
+      "image": [
+        "https://firebasestorage.googleapis.com/v0/b/eco-vuejs.appspot.com/o/images%2FScreenshot%202024-10-15%20115116.png?alt=media&token=0781efdc-e972-429f-8fc1-de49553b8d7e"
+      ],
+      "id": 13
+    },
+    {
+      "product_name": "12",
+      "description": "12",
+      "unit_price": "12",
+      "stock_quantity": "12",
+      "image": [
+        "https://firebasestorage.googleapis.com/v0/b/eco-vuejs.appspot.com/o/images%2FScreenshot%202024-10-15%20102819.png?alt=media&token=b1369027-838e-4774-96a8-e50661c13315"
+      ],
+      "id": 14
+    },
+    {
+      "product_name": "66",
+      "description": "66",
+      "unit_price": "66",
+      "stock_quantity": "66",
+      "image": [
+        "https://firebasestorage.googleapis.com/v0/b/eco-vuejs.appspot.com/o/images%2FScreenshot%202024-10-15%20115116.png?alt=media&token=462107de-becc-457b-a30e-df99a45e170b"
+      ],
+      "id": 15
+    },
+    {
+      "product_name": "1222222",
+      "description": "222222",
+      "unit_price": "12",
+      "stock_quantity": "12",
+      "image": [
+        "https://firebasestorage.googleapis.com/v0/b/eco-vuejs.appspot.com/o/images%2FScreenshot%202024-10-15%20115116.png?alt=media&token=f2c77f4d-67cc-4bb4-acc2-164479ec78df"
+      ],
+      "categoryId": 4,
+      "id": 16
     }
   ],
   "orders": [
