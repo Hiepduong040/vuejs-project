@@ -65,23 +65,7 @@
         <div
           class="flex items-center justify-between py-4 px-6 bg-white shadow-md rounded-lg"
         >
-          <!-- Page size selector -->
-          <!-- <div class="flex items-center space-x-2">
-            <label for="pageSize" class="text-sm font-medium text-gray-700"
-              >Records per page:</label
-            >
-            <select
-              v-model="pageSize"
-              @change="updatePageSize"
-              class="block w-20 px-2 py-1 text-gray-700 bg-gray-100 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-            >
-              <option value="3">3</option>
-              <option value="5">5</option>
-              <option value="10">10</option>
-            </select>
-          </div> -->
-  
-          <!-- Page navigation -->
+        
           <div class="flex items-center space-x-4">
             <button
               @click="prevPage"

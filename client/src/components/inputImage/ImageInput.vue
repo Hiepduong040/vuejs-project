@@ -1,6 +1,6 @@
 <template>
     <div class="imageProduct_form">
-      <div class="image_product_title">Hình ảnh danh mục</div>
+      
       <div class="main_content">
       <div class="uploadImage_part">
         <div class="upload_icon_part">
@@ -66,11 +66,7 @@
     margin-bottom: 10px;
   }
   
-  .image_product_title {
-    margin-top: 0;
-    height: 34px;
-    padding: 0px 0px 0px;
-  }
+  
   
   .image_list {
     display: flex;

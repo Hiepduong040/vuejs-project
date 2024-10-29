@@ -22,12 +22,16 @@
               placeholder="Tên danh mục"
               class="w-full p-2 border border-gray-300 rounded-md"
             />
+            <span v-if="errors.category_name" class="text-red-500 text-sm">{{ errors.category_name }}</span>
             <textarea
               v-model="category.description"
               placeholder="Mô tả"
               class="w-full p-2 border border-gray-300 rounded-md"
             ></textarea>
+            <span v-if="errors.description" class="text-red-500 text-sm">{{ errors.description }}</span>
+            <div>Hình ảnh danh mục</div>
             <ImageInput :image="category.image" @handleImange="handleImage"></ImageInput>
+            <span v-if="errors.image" class="text-red-500 text-sm">{{ errors.image }}</span>
           </div>
           <div class="mt-4 flex justify-end">
             <button
@@ -51,27 +55,73 @@
 </template>
 
 <script setup>
-import { reactive,ref } from "vue";
+import { ref } from "vue";
 import { useStore } from "vuex";
 import ImageInput from "../../../components/inputImage/ImageInput.vue";
-// Khởi tạo store và các biến cần thiết
+import Swal from "sweetalert2";
+
 const store = useStore();
 const showModal = ref(false);
 const category = ref({ category_name: "", description: "", image: "" });
 const isEditing = ref(false);
-const handleImage=(link)=>{
-  category.value.image=link;
-}
-// Hàm xử lý khi gửi form
-const handleSubmit = () => {
-  
-  if (isEditing.value) {
-    store.dispatch("updateCategory", {...category.value});
-  } else {
-    store.dispatch("addCategory",{...category.value});
-  }
-  showModal.value = false; // Đóng modal sau khi gửi
+const errors = ref({});
+
+// Fetch existing categories to validate against
+const existingCategories = ref([]);
+
+const handleImage = (link) => {
+  category.value.image = link;
 };
+
+// Fetch categories from store when component mounts
+const fetchCategories = async () => {
+  await store.dispatch("fetchAllCategories");
+  existingCategories.value = store.getters.getCategories.map(cat => cat.category_name.toLowerCase());
+};
+
+const validateForm = () => {
+  errors.value = {}; 
+  let isValid = true;
+
+  if (!category.value.category_name) {
+    errors.value.category_name = "Tên danh mục là không được bỏ trống.";
+    isValid = false;
+  } else if (existingCategories.value.includes(category.value.category_name.toLowerCase())) {
+    errors.value.category_name = "Tên danh mục đã tồn tại.";
+    isValid = false;
+  }
+  if (!category.value.description) {
+    errors.value.description = "Mô tả là không được bỏ trống.";
+    isValid = false;
+  }
+  if (!category.value.image) {
+    errors.value.image = "Vui lòng chọn hình ảnh.";
+    isValid = false;
+  }
+  
+  return isValid;
+};
+
+const handleSubmit = () => {
+  if (validateForm()) {
+    if (isEditing.value) {
+      store.dispatch("updateCategory", { ...category.value });
+    } else {
+      store.dispatch("addCategory", { ...category.value });
+    }
+    showModal.value = false; // Đóng modal sau khi gửi
+    Swal.fire({
+      icon: 'success',
+      title: 'Thêm danh mục thành công!',
+      text: 'Danh mục mới đã được thêm vào hệ thống.',
+      confirmButtonText: 'OK'
+    });
+    store.dispatch("fetchAllCategories"); // Refresh categories list
+    category.value = { category_name: "", description: "", image: "" }; // Reset form
+  }
+};
+
+fetchCategories(); // Fetch categories when component mounts
 
 </script>
 

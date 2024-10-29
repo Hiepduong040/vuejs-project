@@ -127,30 +127,17 @@
       "updated_at": ""
     },
     {
-      "username": "11",
+      "username": "1",
       "fullName": "1",
-      "email": "1@gmail.com",
-      "password": "1",
-      "phone": "1",
+      "email": "11@gmail.com",
+      "password": "123456",
+      "phone": "1234567890",
       "address": "1",
-      "avatar": "1",
+      "avatar": "",
       "status": true,
-      "created_at": "2024-10-18T01:13:24.318Z",
+      "created_at": "2024-10-28T10:53:54.586Z",
       "updated_at": "",
-      "id": 79
-    },
-    {
-      "username": "2334",
-      "fullName": "1",
-      "email": "1@gmail.com",
-      "password": "11111",
-      "phone": "1",
-      "address": "1",
-      "avatar": "1",
-      "status": true,
-      "created_at": "2024-10-18T04:05:39.876Z",
-      "updated_at": "",
-      "id": 80
+      "id": 82
     }
   ],
   "categories": [
@@ -183,22 +170,22 @@
       "id": 7
     },
     {
-      "category_name": "1",
-      "description": "1",
+      "category_name": "Sách thiếu nhi",
+      "description": "Khám phá các câu truyện về tình bạn, lòng dũng cảm và tình yêu thiên nhiên qua từng trang sách.",
       "image": "https://firebasestorage.googleapis.com/v0/b/eco-vuejs.appspot.com/o/images%2F411162906_380711511130081_7823489149764153954_n.jpg?alt=media&token=af174ebc-f73c-4100-948e-8715c67ad455",
       "id": 8
     },
     {
-      "category_name": "22",
-      "description": "2",
-      "image": "https://firebasestorage.googleapis.com/v0/b/eco-vuejs.appspot.com/o/images%2Fth.jpg?alt=media&token=dcd504a7-97a4-48c6-a6f3-f00b05aa3812",
-      "id": 9
+      "category_name": "Sách giáo khoa",
+      "description": "Là tài liệu học tập giúp các em học sinh khám phá kiến thức cơ bản và nâng cao",
+      "image": "https://firebasestorage.googleapis.com/v0/b/eco-vuejs.appspot.com/o/images%2FScreenshot%202024-10-15%20115110.png?alt=media&token=37104687-077f-43d8-a011-746a71e9be45",
+      "id": 10
     },
     {
-      "category_name": "233",
-      "description": "23",
-      "image": "https://firebasestorage.googleapis.com/v0/b/eco-vuejs.appspot.com/o/images%2FScreenshot%202024-10-15%20115116.png?alt=media&token=e94402e7-38da-43c8-9574-f7bafe92ccc7",
-      "id": 10
+      "category_name": "sách tham khảo",
+      "description": "Cung cấp kiến thức mở rộng và chuyên sâu, hỗ trợ học sinh và giáo viên trong việc củng cố và phát triển các kỹ năng cần thiết",
+      "image": "https://firebasestorage.googleapis.com/v0/b/eco-vuejs.appspot.com/o/images%2FScreenshot%202024-10-15%20115116.png?alt=media&token=eac5e8da-19b4-40a4-9c5d-ad106761522e",
+      "id": 11
     }
   ],
   "products": [
@@ -403,56 +390,46 @@
       ]
     },
     {
-      "product_name": "223",
-      "description": "223",
-      "unit_price": "223",
-      "stock_quantity": "223",
-      "image": [
-        "https://firebasestorage.googleapis.com/v0/b/eco-vuejs.appspot.com/o/images%2FScreenshot%202024-10-16%20084829.png?alt=media&token=77ead474-0538-453c-b612-17d0e6360977"
-      ],
-      "id": 12,
-      "categoryId": 5
-    },
-    {
-      "product_name": "2",
-      "description": "2",
-      "unit_price": "2",
+      "product_name": "22",
+      "description": "22\n",
+      "unit_price": "22",
       "stock_quantity": "2",
       "image": [
-        "https://firebasestorage.googleapis.com/v0/b/eco-vuejs.appspot.com/o/images%2FScreenshot%202024-10-15%20115116.png?alt=media&token=0781efdc-e972-429f-8fc1-de49553b8d7e"
+        [
+          "https://firebasestorage.googleapis.com/v0/b/eco-vuejs.appspot.com/o/images%2FScreenshot%202024-10-16%20084625.png?alt=media&token=0261a7f1-44ef-49ae-a03b-667858457a7a"
+        ],
+        [
+          [
+            "https://firebasestorage.googleapis.com/v0/b/eco-vuejs.appspot.com/o/images%2FScreenshot%202024-10-16%20084625.png?alt=media&token=0261a7f1-44ef-49ae-a03b-667858457a7a"
+          ],
+          "https://firebasestorage.googleapis.com/v0/b/eco-vuejs.appspot.com/o/images%2FScreenshot%202024-10-15%20115116.png?alt=media&token=375bce40-3ec9-4296-9f9d-b5976f706590"
+        ]
       ],
-      "id": 13
-    },
-    {
-      "product_name": "12",
-      "description": "12",
-      "unit_price": "12",
-      "stock_quantity": "12",
-      "image": [
-        "https://firebasestorage.googleapis.com/v0/b/eco-vuejs.appspot.com/o/images%2FScreenshot%202024-10-15%20102819.png?alt=media&token=b1369027-838e-4774-96a8-e50661c13315"
-      ],
-      "id": 14
-    },
-    {
-      "product_name": "66",
-      "description": "66",
-      "unit_price": "66",
-      "stock_quantity": "66",
-      "image": [
-        "https://firebasestorage.googleapis.com/v0/b/eco-vuejs.appspot.com/o/images%2FScreenshot%202024-10-15%20115116.png?alt=media&token=462107de-becc-457b-a30e-df99a45e170b"
-      ],
-      "id": 15
-    },
-    {
-      "product_name": "1222222",
-      "description": "222222",
-      "unit_price": "12",
-      "stock_quantity": "12",
-      "image": [
-        "https://firebasestorage.googleapis.com/v0/b/eco-vuejs.appspot.com/o/images%2FScreenshot%202024-10-15%20115116.png?alt=media&token=f2c77f4d-67cc-4bb4-acc2-164479ec78df"
-      ],
-      "categoryId": 4,
+      "categoryId": 5,
       "id": 16
+    },
+    {
+      "product_name": "65",
+      "description": "65",
+      "unit_price": "65",
+      "stock_quantity": "65",
+      "image": [
+        "https://firebasestorage.googleapis.com/v0/b/eco-vuejs.appspot.com/o/images%2FScreenshot%202024-10-15%20234203.png?alt=media&token=e43dbbb4-c80f-4bea-bcc8-96865bb1052f",
+        "https://firebasestorage.googleapis.com/v0/b/eco-vuejs.appspot.com/o/images%2FScreenshot%202024-10-16%20084625.png?alt=media&token=f9fcffd6-9265-4214-bc4b-a9e2c9c6444f"
+      ],
+      "categoryId": 6,
+      "id": 17
+    },
+    {
+      "product_name": "1",
+      "description": "1",
+      "unit_price": "1",
+      "stock_quantity": "1",
+      "image": [
+        "https://firebasestorage.googleapis.com/v0/b/eco-vuejs.appspot.com/o/images%2FScreenshot%202024-10-15%20232800.png?alt=media&token=24eff88b-cf1c-4091-a93d-f6f85f1ee407"
+      ],
+      "categoryId": 5,
+      "id": 18
     }
   ],
   "orders": [

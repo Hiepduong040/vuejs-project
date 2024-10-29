@@ -6,6 +6,7 @@ import {
   deleteUser,
   addUser,
 } from "@/api/userAPI";
+import Swal from 'sweetalert2';
 
 const user = {
   state: {
@@ -92,10 +93,29 @@ const user = {
       }
       commit("setFilteredUsers", sortedUsers); // Cập nhật danh sách sau khi sắp xếp
     },
-    async addUserAction({ commit }, newUser) {
-      const response = await addUser(newUser);
-      commit("addUserMutation", response.data);
-    },
+    async addUserAction({ commit, state }, newUser) {
+      // Check if the email already exists
+      const emailExists = state.users.some(user => user.email === newUser.email);
+      
+      if (emailExists) {
+        throw Swal.fire({
+          icon: 'error',
+          title: 'Email đã tồn tại!',
+          text: 'Vui lòng sử dụng email khác.',
+          confirmButtonText: 'OK',
+          background: '#fff',
+          iconColor: '#d33', // Change icon color
+          customClass: {
+            confirmButton: 'bg-blue-500 text-white rounded', // Add your custom classes
+          },
+        });
+        // throw new Error('Email đã tồn tại! Vui lòng sử dụng email khác.');
+      }
+    
+      const response = await addUser(newUser); // Call the API to add the user
+      commit("addUserMutation", response.data); // Commit the mutation to add the user to the store
+    }
+    
   },
   getters: {
     paginatedUsers: (state) => {

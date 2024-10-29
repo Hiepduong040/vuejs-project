@@ -40,24 +40,34 @@
 import { ref } from "vue";
 import axios from "axios";
 import { useRouter } from "vue-router";
-
+import Swal from "sweetalert2";
 const email = ref("");
 const password = ref("");
 const router = useRouter();
 
 const login = async () => {
   if (!email.value || !password.value) {
-    alert("Email and password cannot be empty");
+    Swal.fire({
+      icon: "warning",
+      title: "Tài khoản hoặc mật khẩu không được để trống",
+      text: "Vui lòng đăng nhập để sử dụng!",
+      confirmButtonText: "OK",
+    })
     return;
   }
 
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailPattern.test(email.value)) {
-    alert("Invalid email format");
+    Swal.fire({
+      icon: "warning",
+      title: "Email không đúng định dạng",
+      text: "Vui lòng đăng nhập để sử dụng!",
+      confirmButtonText: "OK",
+    })
     return;
   }
 
-  try {
+  
     const response = await axios.get("http://localhost:3000/admin");
     const admin = response.data.find(
       (user) => user.email === email.value && user.password === password.value
@@ -66,19 +76,24 @@ const login = async () => {
     if (admin) {
       // Store admin in localStorage
       localStorage.setItem("admin", JSON.stringify(admin));
-
+      Swal.fire({
+        icon: "success",
+        title: "Đăng nhập thành công!",
+        text: "",
+        confirmButtonText: "OK",
+      });
       // Successful login, redirect to admin dashboard
       router.push("/admin/dashboard");
     } else {
-      alert("Invalid email or password");
+      Swal.fire({
+      icon: "warning",
+      title: "Thông tin tài khoản hoặc mật khẩu không chính xác",
+      text: "Vui lòng đăng nhập để sử dụng!",
+      confirmButtonText: "OK",
+    })
     }
-  } catch (error) {
-    console.error("Error fetching admin data:", error);
-    alert("Error during login, please try again");
-  }
+  
 };
-
-
 </script>
 
   
