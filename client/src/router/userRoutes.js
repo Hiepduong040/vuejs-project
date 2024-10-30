@@ -1,5 +1,4 @@
 import UserLayout from "@/layouts/user/UserLayout.vue";
-// import  UserLayout from "@/layouts/user/UserLayout.vue";
 import Account from "@/views/user/Account.vue";
 import Address from "@/views/user/Address.vue";
 import Cart from "@/views/user/Cart.vue";
@@ -9,7 +8,7 @@ import Home from "@/views/user/Home.vue";
 import Profile from "@/views/user/Profile.vue";
 import UserPrivate from "@/views/user/UserPrivate.vue";
 import WishList from "@/views/user/WishList.vue";
-
+import CategoryDetail from "@/views/user/CategoryDetail.vue";
 const userRoutes = [
   {
     path: "/",
@@ -58,6 +57,11 @@ const userRoutes = [
                 component: HistoryOrder,
               },
             ],
+          },
+          {
+            path: "category/:id", 
+            name: "category-detail",
+            component: CategoryDetail,
           },
         ],
       },

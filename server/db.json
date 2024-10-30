@@ -129,15 +129,15 @@
     {
       "username": "1",
       "fullName": "1",
-      "email": "11@gmail.com",
-      "password": "123456",
-      "phone": "1234567890",
-      "address": "1",
+      "email": "121@gmail.com",
+      "password": "1111111111111111",
+      "phone": "1111111111",
+      "address": "11111111111",
       "avatar": "",
       "status": true,
-      "created_at": "2024-10-28T10:53:54.586Z",
+      "created_at": "2024-10-30T07:10:01.345Z",
       "updated_at": "",
-      "id": 82
+      "id": 79
     }
   ],
   "categories": [
@@ -182,7 +182,7 @@
       "id": 10
     },
     {
-      "category_name": "sách tham khảo",
+      "category_name": "Sách tham khảo",
       "description": "Cung cấp kiến thức mở rộng và chuyên sâu, hỗ trợ học sinh và giáo viên trong việc củng cố và phát triển các kỹ năng cần thiết",
       "image": "https://firebasestorage.googleapis.com/v0/b/eco-vuejs.appspot.com/o/images%2FScreenshot%202024-10-15%20115116.png?alt=media&token=eac5e8da-19b4-40a4-9c5d-ad106761522e",
       "id": 11
@@ -421,12 +421,13 @@
       "id": 17
     },
     {
-      "product_name": "1",
+      "product_name": "12",
       "description": "1",
       "unit_price": "1",
       "stock_quantity": "1",
       "image": [
-        "https://firebasestorage.googleapis.com/v0/b/eco-vuejs.appspot.com/o/images%2FScreenshot%202024-10-15%20232800.png?alt=media&token=24eff88b-cf1c-4091-a93d-f6f85f1ee407"
+        "https://firebasestorage.googleapis.com/v0/b/eco-vuejs.appspot.com/o/images%2FScreenshot%202024-10-15%20232800.png?alt=media&token=24eff88b-cf1c-4091-a93d-f6f85f1ee407",
+        "https://firebasestorage.googleapis.com/v0/b/eco-vuejs.appspot.com/o/images%2Fth.jpg?alt=media&token=6a9fd4e2-594f-4f35-86c7-f50c248fb6c1"
       ],
       "categoryId": 5,
       "id": 18

@@ -4,11 +4,12 @@ import {
   updateProduct,
   addProduct,
 } from "../../api/productAPI";
-
+import { getAllCategories, getProductsByCategoryId } from "@/api/categoryAPI";
 const product = {
   state: {
     products: [],
     filteredProducts: [],
+    categories: [], 
     currentPage: 1, // Trang hiện tại
     pageSize: 5, // Số lượng sản phẩm mỗi trang
     totalProducts: 0, // Tổng số sản phẩm
@@ -75,6 +76,15 @@ const product = {
     async deleteProduct({ commit }, productId) {
       await deleteProduct(productId);
       commit("deleteProductMutations", productId);
+    },
+    // get product by id category
+    async fetchCategoryById({ state }, categoryId) {
+      const category = state.categories.find(cat => cat.id === categoryId);
+      return category || null; // Return category if found
+    },
+    async fetchProductsByCategoryId({ commit }, categoryId) {
+      const response = await getProductsByCategoryId(categoryId);
+      return response.data; // Assuming the API returns a list of products
     },
     setPageSize({ commit, dispatch }, size) {
       commit("setPageSize", size);

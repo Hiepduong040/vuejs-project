@@ -17,3 +17,7 @@ export const updateCategory = async (category) => {
 export const addCategory = async (category) => {
   return await apiClient.post('/categories', category);
 };
+
+export const getProductsByCategoryId = async (categoryId) => {
+  return await apiClient.get(`/products?categoryId=${categoryId}`);
+};

@@ -16,3 +16,5 @@ export const updateProduct = async (product) => {
 export const addProduct = async (product) => {
   return await apiClient.post('/products', product);
 };
+
+
