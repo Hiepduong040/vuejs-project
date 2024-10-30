@@ -2,7 +2,6 @@
     <div>
       <div class="min-h-screen bg-gray-100 flex items-center justify-center">
         <div class="bg-white shadow-lg rounded-lg flex flex-col lg:flex-row w-full max-w-6xl">
-          <!-- Left Side (Banner Image) -->
           <div class="hidden lg:flex items-center justify-center bg-blue-50 rounded-l-lg">
             <img
               src="https://png.pngtree.com/png-clipart/20230825/original/pngtree-signing-up-for-a-course-isolated-cartoon-vector-illustrations-picture-image_8710389.png"
@@ -11,86 +10,61 @@
             />
           </div>
   
-          <!-- Right Side (Login Form) -->
           <div class="flex items-center justify-center p-8 lg:p-12 w-full lg:w-1/2">
-            <div class="w-full max-w-md login-form"> <!-- Đặt class cho chiều rộng -->
-              <!-- Logo -->
+            <div class="w-full max-w-md register-form">
               <div class="text-center mb-6">
                 <img
                   class="w-16 mx-auto"
                   src="https://www.pngmart.com/files/21/Administrator-PNG-File.png"
-                  alt="Logo Sapochee.Io.Vn"
+                  alt="Logo Book365.Vn"
                 />
-                <h2 class="text-2xl font-bold mt-2">Sapochee.Io.Vn</h2>
+                <h2 class="text-2xl font-bold mt-2">Book365.Vn</h2>
               </div>
   
-              <!-- Welcome Message -->
-              <h4 class="text-xl font-semibold mb-2 text-gray-700">Welcome to Sapochee.Io.Vn! 👋</h4>
-              <p class="mb-4 text-gray-500">Vui lòng đăng nhập để có thể sử dụng dịch vụ</p>
-  
-              <!-- Login Form -->
-              <form class="space-y-4">
-                <div class="space-y-1">
-                  <label for="username" class="block text-sm font-medium text-gray-700">Email or Tài khoản</label>
-                  <input
-                    type="text"
-                    id="username"
-                    name="username"
-                    placeholder="Nhập email hoặc tài khoản"
-                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-200"
-                    required
-                  />
-                </div>
-  
-                <div class="space-y-1">
-                  <label for="password" class="block text-sm font-medium text-gray-700">Mật Khẩu</label>
-                  <div class="relative">
-                    <input
-                      type="password"
-                      id="password"
-                      name="password"
-                      placeholder="password"
-                      class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-200"
-                      required
-                    />
-                    <span class="absolute inset-y-0 right-0 pr-3 flex items-center cursor-pointer">
-                      <i class="bx bx-hide"></i>
-                    </span>
-                  </div>
-                </div>
-  
-                <button type="submit" class="w-full py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
-                  Đăng Nhập
-                </button>
-              </form>
-  
-              <!-- Sign Up Link -->
-              <p class="text-center mt-4 text-sm text-gray-500">
-                Bạn chưa có tài khoản? 
-                <a href="/oauth/dang-ky?redirect=https%3A%2F%2Fsapochee.io.vn%2F" class="text-blue-600 hover:underline">
-                  Đăng ký ngay
-                </a>
+              <h4 class="text-xl font-semibold mb-2 text-gray-700">
+                Đăng ký tài khoản mới
+              </h4>
+              <p class="mb-4 text-gray-500">
+                Vui lòng điền thông tin bên dưới để tạo tài khoản
               </p>
   
-              <!-- Divider -->
-              <div class="my-4 flex items-center">
-                <div class="flex-grow border-t border-gray-300"></div>
-                <span class="px-4 text-sm text-gray-500">or</span>
-                <div class="flex-grow border-t border-gray-300"></div>
-              </div>
+              <form @submit.prevent="handleRegister" class="space-y-4">
+                <div class="space-y-1">
+                  <label for="fullName" class="block text-sm font-medium text-gray-700">Họ và tên</label>
+                  <input v-model="registerData.fullName" type="text" id="fullName" placeholder="Nhập họ và tên" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-200" required />
+                </div>
   
-              <!-- Social Login Buttons -->
-              <div class="flex space-x-3 justify-center">
-                <a href="#" class="flex items-center justify-center w-10 h-10 rounded-full bg-blue-600 text-white hover:bg-blue-700">
-                  <i class="bx bxl-facebook"></i>
-                </a>
-                <a href="#" class="flex items-center justify-center w-10 h-10 rounded-full bg-red-600 text-white hover:bg-red-700">
-                  <i class="bx bxl-google-plus"></i>
-                </a>
-                <a href="#" class="flex items-center justify-center w-10 h-10 rounded-full bg-gray-800 text-white hover:bg-gray-700">
-                  <i class="bx bxl-github"></i>
-                </a>
-              </div>
+                <div class="space-y-1">
+                  <label for="username" class="block text-sm font-medium text-gray-700">Tài khoản</label>
+                  <input v-model="registerData.username" type="text" id="username" placeholder="Nhập tài khoản" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-200" required />
+                </div>
+  
+                <div class="space-y-1">
+                  <label for="phone" class="block text-sm font-medium text-gray-700">Số điện thoại</label>
+                  <input v-model="registerData.phone" type="text" id="phone" placeholder="Nhập số điện thoại" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-200" />
+                </div>
+  
+                <div class="space-y-1">
+                  <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                  <input v-model="registerData.email" type="email" id="email" placeholder="Nhập email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-200" required />
+                </div>
+  
+                <div class="space-y-1">
+                  <label for="password" class="block text-sm font-medium text-gray-700">Mật khẩu</label>
+                  <input v-model="registerData.password" type="password" id="password" placeholder="Nhập mật khẩu" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-200" required />
+                </div>
+  
+                <div class="space-y-1">
+                  <label for="repassword" class="block text-sm font-medium text-gray-700">Nhập lại mật khẩu</label>
+                  <input v-model="registerData.repassword" type="password" id="repassword" placeholder="Nhập lại mật khẩu" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-200" required />
+                </div>
+  
+                <button type="submit" class="w-full py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700">Đăng Ký</button>
+              </form>
+  
+              <p class="text-center mt-4 text-sm text-gray-500">
+                Bạn đã có tài khoản? <a href="/login" class="text-blue-600 hover:underline">Đăng nhập ngay</a>
+              </p>
             </div>
           </div>
         </div>
@@ -99,12 +73,92 @@
   </template>
   
   <script setup>
+  import { ref } from "vue";
+  import { addUser, getAllUser } from "@/api/userAPI"; // Import API function để thêm người dùng
+  import Swal from "sweetalert2"; // Import SweetAlert
   
+  const registerData = ref({
+    fullName: "",
+    username: "",
+    email: "",
+    password: "",
+    repassword: "", // Thêm trường nhập lại mật khẩu
+    phone: "",
+    address: "",
+    avatar: "",
+    status: true,
+    created_at: "",
+    updated_at: "",
+  });
+  
+  // Hàm xử lý đăng ký
+  const handleRegister = async () => {
+    if (!registerData.value.fullName || !registerData.value.username || !registerData.value.email || !registerData.value.password || !registerData.value.repassword) {
+      Swal.fire("Lỗi", "Vui lòng điền đầy đủ thông tin!", "error");
+      return;
+    }
+  
+    // Kiểm tra số điện thoại có 11 ký tự
+    if (registerData.value.phone && registerData.value.phone.length !== 11) {
+      Swal.fire("Lỗi", "Số điện thoại phải có 11 ký tự!", "error");
+      return;
+    }
+  
+    // Kiểm tra mật khẩu tối thiểu 6 ký tự
+    if (registerData.value.password.length < 6) {
+      Swal.fire("Lỗi", "Mật khẩu phải có ít nhất 6 ký tự!", "error");
+      return;
+    }
+  
+    // Kiểm tra mật khẩu và nhập lại mật khẩu
+    if (registerData.value.password !== registerData.value.repassword) {
+      Swal.fire("Lỗi", "Mật khẩu và nhập lại mật khẩu không trùng khớp!", "error");
+      return;
+    }
+  
+    // Kiểm tra email có trùng trong database
+    const emailExists = await checkEmailExists(registerData.value.email);
+    if (emailExists) {
+      Swal.fire("Lỗi", "Email đã tồn tại! Vui lòng sử dụng email khác.", "error");
+      return;
+    }
+  
+    // Chuẩn bị dữ liệu người dùng
+    const newUser = {
+      username: registerData.value.username,
+      fullName: registerData.value.fullName,
+      email: registerData.value.email,
+      password: registerData.value.password,
+      phone: registerData.value.phone,
+      address: registerData.value.address,
+      avatar: "",
+      status: true,
+      created_at: new Date().toISOString(),
+      updated_at: "",
+    };
+  
+    try {
+      const response = await addUser(newUser);
+      console.log("User registered:", response.data);
+      Swal.fire("Thành công", "Đăng ký tài khoản thành công!", "success").then(() => {
+        window.location.href = "http://localhost:5173/login"; // Điều hướng tới trang đăng nhập
+      });
+    } catch (error) {
+      console.error("Registration error:", error);
+      Swal.fire("Lỗi", "Có lỗi xảy ra trong quá trình đăng ký!", "error");
+    }
+  };
+  
+  // Hàm kiểm tra email có tồn tại hay không
+  const checkEmailExists = async (email) => {
+    const response = await getAllUser(); // Hàm này phải trả về danh sách người dùng từ DB
+    return response.data.some(user => user.email === email);
+  };
   </script>
   
   <style>
-  .login-form {
-    width: 392px; 
+  .register-form {
+    width: 392px;
   }
   </style>
   

@@ -9,6 +9,7 @@ import Profile from "@/views/user/Profile.vue";
 import UserPrivate from "@/views/user/UserPrivate.vue";
 import WishList from "@/views/user/WishList.vue";
 import CategoryDetail from "@/views/user/CategoryDetail.vue";
+import ProductDetail from "@/views/user/ProductDetail.vue";
 const userRoutes = [
   {
     path: "/",
@@ -59,10 +60,17 @@ const userRoutes = [
             ],
           },
           {
-            path: "category/:id", 
+            path: "category/:categoryId", 
             name: "category-detail",
             component: CategoryDetail,
+            
           },
+          {
+            path: "product/:productId", // Add this line
+            name: "product-detail",
+            component: ProductDetail,
+          },
+          
         ],
       },
     ],
@@ -71,5 +79,6 @@ const userRoutes = [
 
 
 export default userRoutes;
+
 
 

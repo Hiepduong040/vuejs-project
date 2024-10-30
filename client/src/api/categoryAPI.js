@@ -21,3 +21,11 @@ export const addCategory = async (category) => {
 export const getProductsByCategoryId = async (categoryId) => {
   return await apiClient.get(`/products?categoryId=${categoryId}`);
 };
+
+
+
+// In categoryAPI.js
+export const getCategoryById = async (categoryId) => {
+  const response = await apiClient.get(`/categories/${categoryId}`); // Adjust the URL according to your API
+  return response.data;
+};

@@ -3,23 +3,31 @@ import {
   deleteProduct,
   updateProduct,
   addProduct,
+  getUserAllProducts,
+  getProductById,
 } from "../../api/productAPI";
 import { getAllCategories, getProductsByCategoryId } from "@/api/categoryAPI";
 const product = {
   state: {
     products: [],
+    allProducts: [],
     filteredProducts: [],
-    categories: [], 
+    categories: [],
     currentPage: 1, // Trang hiện tại
     pageSize: 5, // Số lượng sản phẩm mỗi trang
     totalProducts: 0, // Tổng số sản phẩm
   },
   mutations: {
     setProductMutations(state, { products, total }) {
-      state.products = products;
-      state.filteredProducts = products;
+      state.products = products; // Lưu sản phẩm hiện tại
+      state.filteredProducts = products; // Lưu sản phẩm đã lọc
       state.totalProducts = total; // Cập nhật tổng số sản phẩm
     },
+    setAllProductMutations(state, products) {
+      console.log(11111, products); // Log để kiểm tra dữ liệu
+      state.allProducts = products; // Lưu tất cả sản phẩm
+    },
+    
     addProductMutations(state, product) {
       state.products.push(product);
       state.filteredProducts.push(product);
@@ -79,7 +87,7 @@ const product = {
     },
     // get product by id category
     async fetchCategoryById({ state }, categoryId) {
-      const category = state.categories.find(cat => cat.id === categoryId);
+      const category = state.categories.find((cat) => cat.id === categoryId);
       return category || null; // Return category if found
     },
     async fetchProductsByCategoryId({ commit }, categoryId) {
@@ -97,6 +105,22 @@ const product = {
     filterProducts({ commit }, searchTerm) {
       commit("filterProductsMutations", searchTerm);
     },
+    // lay sp render giao dien chinh
+    async fetchAllProducts({ commit }) {
+      const response = await getUserAllProducts(); // Gọi API để lấy tất cả sản phẩm
+      commit("setAllProductMutations", response.data); // Truyền data trực tiếp
+    },
+    async fetchProductById({ commit }, productId) {
+      const response = await getProductById(productId); 
+      // const categories = await getCategoriesByIds(product.categoryIds); // Giả sử bạn có hàm này
+      // product.categories = categories; // Gán danh mục vào sản phẩm
+      if (response && response.data) {
+        return response.data; // Trả về dữ liệu sản phẩm
+      }
+      return {}; // Trả về một object rỗng nếu không có dữ liệu
+    }
+    
+    
   },
   getters: {
     getProducts: (state) => state.filteredProducts,
