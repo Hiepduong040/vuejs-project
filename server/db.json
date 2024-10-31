@@ -161,15 +161,9 @@
           "quantity": 1
         },
         {
-          "id": 4,
-          "product_name": "Học Tiếng Anh Căn Bản",
-          "unit_price": "120000",
-          "quantity": 1
-        },
-        {
-          "id": 4,
-          "product_name": "Học Tiếng Anh Căn Bản",
-          "unit_price": "120000",
+          "id": 7,
+          "product_name": "7 Thói Quen Hiệu Quả",
+          "unit_price": "220000",
           "quantity": 1
         }
       ]
@@ -213,7 +207,24 @@
       "status": true,
       "created_at": "2024-10-31T03:17:32.892Z",
       "updated_at": "",
-      "product": [],
+      "product": [
+        {
+          "id": 3,
+          "product_name": "Làm Giàu Từ Chứng Khoán",
+          "unit_price": "200000",
+          "quantity": 1
+        },
+        {
+          "id": 18,
+          "product_name": "12",
+          "unit_price": "1",
+          "quantity": 1,
+          "image": [
+            "https://firebasestorage.googleapis.com/v0/b/eco-vuejs.appspot.com/o/images%2FScreenshot%202024-10-15%20232800.png?alt=media&token=24eff88b-cf1c-4091-a93d-f6f85f1ee407",
+            "https://firebasestorage.googleapis.com/v0/b/eco-vuejs.appspot.com/o/images%2Fth.jpg?alt=media&token=6a9fd4e2-594f-4f35-86c7-f50c248fb6c1"
+          ]
+        }
+      ],
       "id": 82
     }
   ],
@@ -623,6 +634,66 @@
         }
       ],
       "id": 20355124
+    },
+    {
+      "idUser": 79,
+      "product": [
+        {
+          "id": 7,
+          "product_name": "7 Thói Quen Hiệu Quả",
+          "unit_price": "220000",
+          "quantity": 1
+        }
+      ],
+      "id": 14194426
+    },
+    {
+      "idUser": 82,
+      "product": [
+        {
+          "id": 3,
+          "product_name": "Làm Giàu Từ Chứng Khoán",
+          "unit_price": "200000",
+          "quantity": 1
+        }
+      ],
+      "id": 25800306
+    },
+    {
+      "idUser": 82,
+      "product": [
+        {
+          "id": 18,
+          "product_name": "12",
+          "unit_price": "1",
+          "quantity": 1
+        }
+      ],
+      "id": 10993539
+    },
+    {
+      "idUser": 82,
+      "product": [
+        {
+          "id": 18,
+          "product_name": "12",
+          "unit_price": "1",
+          "quantity": 1
+        }
+      ],
+      "id": 59095114
+    },
+    {
+      "idUser": 82,
+      "product": [
+        {
+          "id": 18,
+          "product_name": "12",
+          "unit_price": "1",
+          "quantity": 1
+        }
+      ],
+      "id": 82066622
     }
   ],
   "orders": [

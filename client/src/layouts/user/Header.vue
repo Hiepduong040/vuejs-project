@@ -34,8 +34,8 @@
                 </div>
               </div>
             </div>
-            <a href="#" class="flex items-center text-gray-600 hover:text-gray-800">
-              <i class="bx bx-cart"></i><span class="ml-1">Cart: (0 $)</span>
+            <a  href="/user/cart" class="flex items-center text-gray-600 hover:text-gray-800">
+              <i class="bx bx-cart"></i><span class="ml-1">Cart</span>
             </a>
             <SearchHomeInput class="mt-1.5" />
           </div>
@@ -78,16 +78,21 @@
       </div>
     </header>
   </div>
+  
 </template>
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
+import { useRoute, useRouter } from "vue-router";
 
+const router = useRouter();
 const isFixed = ref(false);
 const previousScroll = ref(0);
 const showDropdown = ref(false);
 const user = JSON.parse(localStorage.getItem("user")); // Lấy thông tin người dùng từ localStorage
-
+const gotoCart = ()=>{
+    router.push("/user/cart");
+  }
 function handleScroll() {
   const currentScroll = window.pageYOffset;
   isFixed.value = currentScroll > previousScroll.value && currentScroll > 40;
@@ -102,6 +107,7 @@ function login() {
 function logout() {
   localStorage.removeItem("user"); // Xóa thông tin người dùng
   window.location.reload(); // Làm mới trang để cập nhật trạng thái
+  window.location.href = "/";
 }
 
 onMounted(() => {

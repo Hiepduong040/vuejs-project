@@ -64,6 +64,7 @@ const newUser = ref({
   address: '',
   avatar: '',
   status: true,
+  //
 });
 const errors = ref({});
 
@@ -135,6 +136,7 @@ const handleAddUser = () => {
       address: '',
       avatar: '',
       status: true,
+      //
     };
     showModal.value = false; // Close the modal after adding user
     

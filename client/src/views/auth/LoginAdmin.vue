@@ -67,7 +67,6 @@ const login = async () => {
     return;
   }
 
-  
     const response = await axios.get("http://localhost:3000/admin");
     const admin = response.data.find(
       (user) => user.email === email.value && user.password === password.value
