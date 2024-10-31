@@ -13,5 +13,4 @@ import TableProduct from './TableProduct.vue';
 </script>
 
 <style scoped>
-/* Additional styles can go here if needed */
 </style>

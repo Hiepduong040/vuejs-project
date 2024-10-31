@@ -127,7 +127,7 @@ const handleAddUser = () => {
       text: 'Người dùng mới đã được thêm vào hệ thống.',
       confirmButtonText: 'OK'
     });
-    newUser.value = { // Reset form
+    newUser.value = {  
       username: '',
       fullName: '',
       email: '',
@@ -138,7 +138,7 @@ const handleAddUser = () => {
       status: true,
       //
     };
-    showModal.value = false; // Close the modal after adding user
+    showModal.value = false; 
     
   }
 };

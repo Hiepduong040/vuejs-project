@@ -71,24 +71,20 @@ const category = ref({ category_name: "", description: "", image: "" });
 const errors = ref({});
 const param = reactive({_page: 1, _limit: 5});
 
-// Fetch categories when the component is mounted
 onMounted(() => {
   store.dispatch("fetchAllCategories", queryString.stringify(param));
 });
 
-// Computed properties
 const currentPageCategories = computed(() => store.state.category.currentPageCategories);
 const pageSizeCategories = computed(() => store.state.category.pageSizeCategories);
 const categories = computed(() => store.state.category.filteredCategories);
 
-// Displayed categories based on pagination
 const displayedCategories = computed(() => {
   const start = (currentPageCategories.value - 1) * pageSizeCategories.value;
   const end = start + pageSizeCategories.value;
   return categories.value.slice(start, end);
 });
 
-// Get existing category names for validation
 const existingCategoryNames = computed(() => {
   return categories.value.map(cat => cat.category_name.toLowerCase());
 });
@@ -112,35 +108,27 @@ const deleteCategory = (categoryId) => {
   });
 };
 
-// Hàm mở modal để chỉnh sửa danh mục
 const editCategory = (categoryToEdit) => {
   category.value = { ...categoryToEdit };
   isEditing.value = true;
   showModal.value = true;
 };
 
-// Validate form inputs
-// Validate form inputs
 const validateForm = () => {
-  errors.value = {}; // Reset errors
+  errors.value = {}; 
 
-  // Check if the category name is empty
   if (!category.value.category_name) {
     errors.value.category_name = "Tên danh mục không được bỏ trống.";
   } else {
-    // Check for duplicate category name, except for the current category being edited
     const isDuplicate = existingCategoryNames.value.includes(category.value.category_name.toLowerCase());
     if (isDuplicate && (!isEditing.value || (isEditing.value && category.value.category_name !== category.value.category_name))) {
       errors.value.category_name = "Tên danh mục đã tồn tại.";
     }
   }
 
-  // Check if the description is empty
   if (!category.value.description) {
     errors.value.description = "Mô tả không được bỏ trống.";
   }
-
-  // Check if image is provided
   if (!category.value.image) {
     errors.value.image = "Hình ảnh không được bỏ trống.";
   }
@@ -149,7 +137,6 @@ const validateForm = () => {
 };
 
 
-// Hàm xử lý khi gửi form
 const handleSubmit = () => {
   if (validateForm()) {
     if (isEditing.value) {
@@ -169,7 +156,7 @@ const handleSubmit = () => {
         confirmButtonText: 'OK'
       });
     }
-    showModal.value = false; // Đóng modal sau khi gửi
+    showModal.value = false; 
   } else {
     Object.keys(errors.value).forEach(key => {
       Swal.fire({

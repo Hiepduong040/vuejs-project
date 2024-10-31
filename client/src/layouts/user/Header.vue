@@ -25,7 +25,7 @@
               <div v-if="showDropdown" class="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg" @click="handleDropdownClick">
                 <div class="px-4 py-2 text-gray-800">
                   <template v-if="user">
-                    <a href="#" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Chi tiết tài khoản</a>
+                    <a href="/user/account" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Chi tiết tài khoản</a>
                     <a href="#" @click.prevent="logout" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Logout</a>
                   </template>
                   <template v-else>
@@ -100,10 +100,6 @@ function handleScroll() {
 
 function toggleDropdown() {
   showDropdown.value = !showDropdown.value;
-}
-
-function handleDropdownClick() {
- 
 }
 
 

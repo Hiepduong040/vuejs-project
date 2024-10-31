@@ -73,7 +73,6 @@ const login = async () => {
     );
 
     if (admin) {
-      // Store admin in localStorage
       localStorage.setItem("admin", JSON.stringify(admin));
       Swal.fire({
         icon: "success",
@@ -81,7 +80,6 @@ const login = async () => {
         text: "",
         confirmButtonText: "OK",
       });
-      // Successful login, redirect to admin dashboard
       router.push("/admin/dashboard");
     } else {
       Swal.fire({

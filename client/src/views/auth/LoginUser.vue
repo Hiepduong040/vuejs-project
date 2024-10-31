@@ -2,7 +2,6 @@
   <div>
     <div class="min-h-screen bg-gray-100 flex items-center justify-center">
       <div class="bg-white shadow-lg rounded-lg flex flex-col lg:flex-row w-full max-w-6xl">
-        <!-- Left Side (Banner Image) -->
         <div class="hidden lg:flex items-center justify-center bg-blue-50 rounded-l-lg">
           <img
             src="https://static.vecteezy.com/system/resources/previews/003/689/228/original/online-registration-or-sign-up-login-for-account-on-smartphone-app-user-interface-with-secure-password-mobile-application-for-ui-web-banner-access-cartoon-people-illustration-vector.jpg"
@@ -11,10 +10,8 @@
           />
         </div>
   
-        <!-- Right Side (Login Form) -->
         <div class="flex items-center justify-center p-8 lg:p-12 w-full lg:w-1/2">
           <div class="w-full max-w-md login-form">
-            <!-- Logo -->
             <div class="text-center mb-6">
               <img
                 class="w-16 mx-auto"
@@ -23,12 +20,9 @@
               />
               <h2 class="text-2xl font-bold mt-2">Book365.Vn</h2>
             </div>
-  
-            <!-- Welcome Message -->
             <h4 class="text-xl font-semibold mb-2 text-gray-700">Welcome to Book365.Vn! 👋</h4>
             <p class="mb-4 text-gray-500">Vui lòng đăng nhập để có thể sử dụng dịch vụ</p>
   
-            <!-- Login Form -->
             <form @submit.prevent="handleLogin" class="space-y-4">
               <div class="space-y-1">
                 <label for="username" class="block text-sm font-medium text-gray-700">Email or Tài khoản</label>
@@ -66,7 +60,6 @@
               </button>
             </form>
   
-            <!-- Sign Up Link -->
             <p class="text-center mt-4 text-sm text-gray-500">
               Bạn chưa có tài khoản? 
               <a href="/register" class="text-blue-600 hover:underline">
@@ -81,7 +74,6 @@
               <div class="flex-grow border-t border-gray-300"></div>
             </div>
   
-            <!-- Social Login Buttons -->
             <div class="flex space-x-3 justify-center">
               <a href="#" class="flex items-center justify-center w-10 h-10 rounded-full bg-blue-600 text-white hover:bg-blue-700">
                 <i class="bx bxl-facebook"></i>
@@ -99,48 +91,42 @@
     </div>
   </div>
 </template>
-
 <script setup>
 import { ref } from "vue";
-import Swal from "sweetalert2"; // Import SweetAlert
-import { getAllUser } from "@/api/userAPI"; // Import API function để lấy danh sách người dùng
+import Swal from "sweetalert2";  
+import { getAllUser } from "@/api/userAPI";  
 
 const loginData = ref({
   username: "",
   password: "",
 });
 
-// Hàm xử lý đăng nhập
 const handleLogin = async () => {
-  // Kiểm tra các trường không được bỏ trống
   if (!loginData.value.username || !loginData.value.password) {
     Swal.fire("Lỗi", "Vui lòng điền đầy đủ thông tin!", "error");
     return;
   }
 
-  // Lấy danh sách người dùng từ API
   const users = await getAllUser();
 
-  // Kiểm tra thông tin người dùng
-  const user = users.data.find(user => (user.username === loginData.value.username || user.email === loginData.value.username) && user.password === loginData.value.password);
+  const user = users.data.find(user => 
+    (user.username === loginData.value.username || user.email === loginData.value.username) &&
+    user.password === loginData.value.password
+  );
 
   if (user) {
-    // Lưu thông tin người dùng vào localStorage
+    if (!user.status) {
+      Swal.fire("Lỗi", "Tài khoản của bạn đã bị khóa!", "error");
+      return;
+    }
+
     localStorage.setItem("user", JSON.stringify(user));
     
-    // Đăng nhập thành công
     Swal.fire("Thành công", "Đăng nhập thành công!", "success").then(() => {
-      window.location.href = "/"; // Chuyển hướng về trang chủ
+      window.location.href = "/"; 
     });
   } else {
-    // Đăng nhập thất bại
     Swal.fire("Lỗi", "Tài khoản hoặc mật khẩu không đúng!", "error");
   }
 };
 </script>
-
-<style>
-.login-form {
-  width: 392px; 
-}
-</style>

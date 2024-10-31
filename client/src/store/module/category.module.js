@@ -23,7 +23,6 @@ const category = {
     },
     addCategoryMutations(state, newCategory) {
       state.categories.push(newCategory);
-      // state.filteredCategories.push(newCategory);
     },
     updateCategoryMutations(state, updatedCategory) {
       const index = state.categories.findIndex(cat => cat.id === updatedCategory.id);

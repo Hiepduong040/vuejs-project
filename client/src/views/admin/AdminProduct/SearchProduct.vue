@@ -18,6 +18,5 @@
   </script>
   
   <style scoped>
-  /* Style cho component này */
   </style>
   

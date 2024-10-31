@@ -22,7 +22,6 @@ import { useStore } from 'vuex';
 const searchTerm = ref('');
 const store = useStore();
 
-// Hàm tìm kiếm danh mục
 const handleSearch = () => {
   store.dispatch("searchCategories", searchTerm.value);
 };

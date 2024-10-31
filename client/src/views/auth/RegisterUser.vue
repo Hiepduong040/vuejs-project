@@ -74,8 +74,8 @@
   
   <script setup>
   import { ref } from "vue";
-  import { addUser, getAllUser } from "@/api/userAPI"; // Import API function để thêm người dùng
-  import Swal from "sweetalert2"; // Import SweetAlert
+  import { addUser, getAllUser } from "@/api/userAPI";  
+  import Swal from "sweetalert2";  
   
   const registerData = ref({
     fullName: "",
@@ -143,7 +143,7 @@
       const response = await addUser(newUser);
       console.log("User registered:", response.data);
       Swal.fire("Thành công", "Đăng ký tài khoản thành công!", "success").then(() => {
-        window.location.href = "http://localhost:5173/login"; // Điều hướng tới trang đăng nhập
+        window.location.href = "http://localhost:5173/login"; 
       });
     } catch (error) {
       console.error("Registration error:", error);

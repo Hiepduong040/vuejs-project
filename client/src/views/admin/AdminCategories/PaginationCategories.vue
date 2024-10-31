@@ -53,5 +53,4 @@ const nextPage = () => {
 </script>
 
 <style>
-/* You can add any additional custom styles here if needed */
 </style>

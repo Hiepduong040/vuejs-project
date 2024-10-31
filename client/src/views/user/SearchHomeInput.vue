@@ -1,12 +1,10 @@
 <!-- SearchHomeInput.vue -->
 <template>
     <div class="flex items-center">
-      <!-- Search Icon Button -->
       <button @click="toggleSearch" class="text-gray-600 hover:text-gray-800">
         <i class="bx bx-search"></i>
       </button>
       
-      <!-- Centered Search Input -->
       <div>
         <input
         v-if="showSearch"

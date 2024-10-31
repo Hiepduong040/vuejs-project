@@ -18,14 +18,11 @@ const carts = {
                 const existingProduct = existingCart.products.find(product => product.id === payload.product.id);
 
                 if (existingProduct) {
-                    // If the product already exists, increase the quantity
                     existingProduct.quantity += payload.product.quantity;
                 } else {
-                    // If the product does not exist, add it to the products array
                     existingCart.products.push(payload.product);
                 }
             } else {
-                // If the cart does not exist, create a new one with an array of products
                 const newCart = {
                     id: state.lastCartId++,
                     idUser: payload.idUser,

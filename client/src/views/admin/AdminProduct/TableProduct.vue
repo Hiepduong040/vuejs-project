@@ -102,27 +102,22 @@ const closeEditModal = () => {
 const validateProduct = () => {
   const errors = {};
   
-  // Check if the product name is empty
   if (!editedProduct.value.product_name) {
     errors.product_name = "Tên sản phẩm không được bỏ trống.";
   }
   
-  // Check if the description is empty
   if (!editedProduct.value.description) {
     errors.description = "Mô tả không được bỏ trống.";
   }
   
-  // Check if the category ID is selected
   if (!editedProduct.value.categoryId) {
     errors.categoryId = "Vui lòng chọn danh mục.";
   }
   
-  // Check if the unit price is valid (greater than 0)
   if (!editedProduct.value.unit_price || isNaN(editedProduct.value.unit_price) || editedProduct.value.unit_price <= 0) {
     errors.unit_price = "Giá phải lớn hơn 0.";
   }
   
-  // Check if the stock quantity is valid (greater than or equal to 0)
   if (!editedProduct.value.stock_quantity || isNaN(editedProduct.value.stock_quantity) || editedProduct.value.stock_quantity < 0) {
     errors.stock_quantity = "Số lượng phải lớn hơn hoặc bằng 0.";
   }
@@ -155,7 +150,6 @@ const handleUpdate = async () => {
     await store.dispatch('updateProduct', editedProduct.value);
     closeEditModal();
   } else {
-    // Display errors using Swal
     Object.values(validation).forEach(error => {
       Swal.fire({
         icon: 'error',
@@ -195,5 +189,4 @@ onMounted(async () => {
 </script>
 
 <style scoped>
-/* Style cho component này */
 </style>

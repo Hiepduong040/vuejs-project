@@ -112,8 +112,6 @@ const product = {
     },
     async fetchProductById({ commit }, productId) {
       const response = await getProductById(productId); 
-      // const categories = await getCategoriesByIds(product.categoryIds); // Giả sử bạn có hàm này
-      // product.categories = categories; // Gán danh mục vào sản phẩm
       if (response && response.data) {
         return response.data; // Trả về dữ liệu sản phẩm
       }

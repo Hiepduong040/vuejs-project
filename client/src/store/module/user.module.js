@@ -111,16 +111,16 @@ const user = {
           text: 'Vui lòng sử dụng email khác.',
           confirmButtonText: 'OK',
           background: '#fff',
-          iconColor: '#d33', // Change icon color
+          iconColor: '#d33',
           customClass: {
-            confirmButton: 'bg-blue-500 text-white rounded', // Add your custom classes
+            confirmButton: 'bg-blue-500 text-white rounded',
           },
         });
         // throw new Error('Email đã tồn tại! Vui lòng sử dụng email khác.');
       }
     
-      const response = await addUser(newUser); // Call the API to add the user
-      commit("addUserMutation", response.data); // Commit the mutation to add the user to the store
+      const response = await addUser(newUser); 
+      commit("addUserMutation", response.data); 
     },
     async addProductToUser({ commit }, { userId, product }) {
       // Lấy thông tin người dùng hiện tại trước khi cập nhật

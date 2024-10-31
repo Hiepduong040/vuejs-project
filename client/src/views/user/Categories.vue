@@ -64,21 +64,21 @@
   const canShowPrev = computed(() => currentIndex.value > 0);
   
   const nextCategories = () => {
-    if (canShowNext.value) currentIndex.value += 1; // Show next set of categories
+    if (canShowNext.value) currentIndex.value += 1; 
   };
   
   const prevCategories = () => {
-    if (canShowPrev.value) currentIndex.value -= 1; // Show previous set of categories
+    if (canShowPrev.value) currentIndex.value -= 1;  
   };
   
   const goToCategory = (categoryId) => {
-    router.push({ name: 'category-detail', params: { categoryId: categoryId } }); // Navigate to category detail
+    router.push({ name: 'category-detail', params: { categoryId: categoryId } });  
   };
   
-  // Listen to Vuex store changes
+   
   store.subscribe((mutation) => {
     if (mutation.type === 'setCategoriesMutations') {
-      categories.value = mutation.payload; // Update categories on state change
+      categories.value = mutation.payload;  
     }
   });
   </script>
@@ -89,7 +89,7 @@
   }
   
   .border:hover {
-    border-color: #60a5fa; /* Border color on hover */
+    border-color: #60a5fa;  
   }
   
   button {
@@ -97,7 +97,7 @@
   }
   
   button:hover {
-    transform: scale(1.05); /* Scale effect on hover */
+    transform: scale(1.05);  
   }
   </style>
   

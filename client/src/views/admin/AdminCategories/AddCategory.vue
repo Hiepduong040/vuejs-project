@@ -66,14 +66,12 @@ const category = ref({ category_name: "", description: "", image: "" });
 const isEditing = ref(false);
 const errors = ref({});
 
-// Fetch existing categories to validate against
 const existingCategories = ref([]);
 
 const handleImage = (link) => {
   category.value.image = link;
 };
 
-// Fetch categories from store when component mounts
 const fetchCategories = async () => {
   await store.dispatch("fetchAllCategories");
   existingCategories.value = store.getters.getCategories.map(cat => cat.category_name.toLowerCase());
@@ -109,19 +107,19 @@ const handleSubmit = () => {
     } else {
       store.dispatch("addCategory", { ...category.value });
     }
-    showModal.value = false; // Đóng modal sau khi gửi
+    showModal.value = false; 
     Swal.fire({
       icon: 'success',
       title: 'Thêm danh mục thành công!',
       text: 'Danh mục mới đã được thêm vào hệ thống.',
       confirmButtonText: 'OK'
     });
-    store.dispatch("fetchAllCategories"); // Refresh categories list
-    category.value = { category_name: "", description: "", image: "" }; // Reset form
+    store.dispatch("fetchAllCategories");  
+    category.value = { category_name: "", description: "", image: "" }; // Reset form 
   }
 };
 
-fetchCategories(); // Fetch categories when component mounts
+fetchCategories(); 
 
 </script>
 
