@@ -26,6 +26,6 @@ export const getProductsByCategoryId = async (categoryId) => {
 
 // In categoryAPI.js
 export const getCategoryById = async (categoryId) => {
-  const response = await apiClient.get(`/categories/${categoryId}`); // Adjust the URL according to your API
+  const response = await apiClient.get(`/categories/${categoryId}`);  
   return response.data;
 };

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="min-h-screen bg-gray-100 flex items-center justify-center">
-      <div class="bg-white shadow-lg rounded-lg flex flex-col lg:flex-row w-full max-w-6xl">
+      <div class="bg-white shadow-lg rounded-lg flex flex-col lg:flex-row w-full max-w-7xl">
         <div class="hidden lg:flex items-center justify-center bg-blue-50 rounded-l-lg">
           <img
             src="https://static.vecteezy.com/system/resources/previews/003/689/228/original/online-registration-or-sign-up-login-for-account-on-smartphone-app-user-interface-with-secure-password-mobile-application-for-ui-web-banner-access-cartoon-people-illustration-vector.jpg"

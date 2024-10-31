@@ -26,15 +26,6 @@
           @change="handleImageChange"
         />
       </div>
-      <!-- render cac anh da chon -->
-      <!-- <div class="img_box" v-if="image && image.length > 0">
-        <div class="flex" v-for="img in image" :key="img">
-          <img :src="img" alt="" class="w-20  h-20 object-cover m-1" />
-          <div @click="removeImage(img)" class="cursor-pointer">
-            <i class="fa fa-trash" aria-hidden="true"></i>
-          </div>
-        </div>
-      </div> -->
       <div class="img_box" v-if="image && image.length > 0">
         <div class="flex relative" v-for="img in image" :key="img">
           <img :src="img" alt="" class="w-20 h-20 object-cover m-1" />

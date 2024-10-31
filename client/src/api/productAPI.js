@@ -6,7 +6,7 @@ export const getAllProducts = async (page = 1, limit = 5) => {
 };
 export const getUserAllProducts = async () => {
   const response = await apiClient.get(`/products`);
-  console.log('All products response:', response.data); // Log để kiểm tra dữ liệu trả về
+  console.log('All products response:', response.data);  
   return response;
 };
 export const getProductById = async (productId) => {
