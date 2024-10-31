@@ -1,5 +1,5 @@
 <template>
-  <h1>Profile page</h1>
+  <h1>cart page</h1>
 </template>
 
 <script>

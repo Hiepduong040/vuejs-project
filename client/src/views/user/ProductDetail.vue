@@ -1,8 +1,9 @@
-   <template>
+
+
+  <template>
   <div class="container mx-auto p-4 bg-gray-200 mt-5">
     <section class="bg-white shadow-md rounded-lg p-4">
       <div class="flex">
-        <!-- Hình ảnh sản phẩm chính -->
         <div class="w-1/2">
           <div class="relative">
             <img
@@ -28,7 +29,6 @@
           </div>
         </div>
 
-        <!-- Chi tiết sản phẩm -->
         <div class="w-1/2 pl-4">
           <h4 class="text-xl font-bold mb-2">
             <a href="#" class="text-gray-800">{{
@@ -82,11 +82,18 @@
             />
           </div>
 
-          <button
+          <div class=" flex gap-3">
+            <button  @click="addToCart"
             class="bg-red-500 text-white py-2 px-4 rounded hover:bg-red-600 transition duration-200"
           >
             <i class="fa fa-shopping-cart"></i> Add to Cart
           </button>
+          <button  @click="gotoCart"
+            class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition duration-200"
+          >
+            <i class="fa fa-shopping-cart"></i> Payment
+          </button>
+          </div>
         </div>
       </div>
     </section>
@@ -102,7 +109,7 @@ const store = useStore();
 const route = useRoute();
 const product = ref({});
 const selectedImage = ref("");
-
+const quantity = ref(1);
 // Hình ảnh dự phòng nếu không có hình ảnh
 const thumbnailImages = [
   "https://www.bootdey.com/image/115x100/87CEFA/000000",
@@ -118,6 +125,30 @@ onMounted(async () => {
   selectedImage.value = product.value.image[0] || ""; // Đặt hình ảnh đầu tiên là hình ảnh lớn
   console.log("Fetched product:", product.value); // Kiểm tra dữ liệu sản phẩm
 });
+const addToCart = async () => {
+  const productToAdd = {
+    id: product.value.id,
+    product_name: product.value.product_name,
+    unit_price: product.value.unit_price,
+    quantity: quantity.value,
+  };
+
+  // Lấy ID người dùng từ local storage
+  const user = JSON.parse(localStorage.getItem('user')); // Giả sử bạn lưu user dưới key 'user'
+  const userId = user ? user.id : null; // Lấy ID người dùng
+
+  if (userId) {
+    try {
+      await store.dispatch("addProductToUser", { userId, product: productToAdd });
+      store.dispatch("addNewCart", productToAdd); 
+    } catch (error) {
+      console.error("Error adding product to user:", error);
+    }
+  } else {
+    console.error("User not found in local storage.");
+    // Có thể hiển thị thông báo cho người dùng nếu cần
+  }
+};
 
 // Thay đổi hình ảnh lớn khi nhấp vào hình thu nhỏ
 const changeImage = (img) => {
@@ -128,4 +159,4 @@ const changeImage = (img) => {
   <style scoped>
 /* Thêm các kiểu dáng nếu cần */
 </style>
-  
+    

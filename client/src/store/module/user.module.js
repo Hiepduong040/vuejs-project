@@ -7,7 +7,7 @@ import {
   addUser,
 } from "@/api/userAPI";
 import Swal from 'sweetalert2';
-
+import apiClient from "@/api/instance"; // Đảm bảo đường dẫn đúng với cấu trúc thư mục của bạn
 const user = {
   state: {
     users: [],
@@ -53,6 +53,12 @@ const user = {
       state.users.push(newUser);
     //   state.filteredUsers.push(newUser); // add user mới vào list
     },
+    updateUserProduct(state, updatedUser) {
+      const index = state.users.findIndex(user => user.id === updatedUser.id);
+      if (index !== -1) {
+        state.users.splice(index, 1, updatedUser);
+      }
+    }
   },
   actions: {
     // lay danh sach toan bo user
@@ -114,6 +120,21 @@ const user = {
     
       const response = await addUser(newUser); // Call the API to add the user
       commit("addUserMutation", response.data); // Commit the mutation to add the user to the store
+    },
+    async addProductToUser({ commit }, { userId, product }) {
+      // Lấy thông tin người dùng hiện tại trước khi cập nhật
+      const response = await apiClient.get(`/users/${userId}`);
+      const user = response.data;
+    
+      // Thêm sản phẩm vào mảng sản phẩm của người dùng
+      const updatedProducts = [...user.product, product];
+    
+      // Cập nhật thông tin người dùng với sản phẩm mới
+      const updateResponse = await apiClient.patch(`/users/${userId}`, {
+        product: updatedProducts,
+      });
+    
+      commit("updateUserProduct", updateResponse.data); // Cập nhật store nếu cần
     }
     
   },

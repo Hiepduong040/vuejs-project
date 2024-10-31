@@ -2,6 +2,7 @@
   "users": [
     {
       "id": 70,
+      "product": [],
       "username": "hiepduong",
       "fullName": "Dương Sỹ Hiệp",
       "email": "hiepduong0409@gmail.com",
@@ -16,6 +17,7 @@
     },
     {
       "id": 71,
+      "product": [],
       "username": "ngocnguyen",
       "fullName": "Nguyễn Thạch Kim Ngọc",
       "email": "ngocnguyen123@gmail.com",
@@ -30,6 +32,7 @@
     },
     {
       "id": 72,
+      "product": [],
       "username": "hoanglong",
       "fullName": "Nguyễn Hoàng Long",
       "email": "longhoang@gmail.com",
@@ -44,6 +47,7 @@
     },
     {
       "id": 73,
+      "product": [],
       "username": "thuylinh",
       "fullName": "Trần Thùy Linh",
       "email": "linhthuy@gmail.com",
@@ -58,6 +62,7 @@
     },
     {
       "id": 74,
+      "product": [],
       "username": "quangtruong",
       "fullName": "Lê Quang Trường",
       "email": "truongle@gmail.com",
@@ -72,6 +77,7 @@
     },
     {
       "id": 75,
+      "product": [],
       "username": "thanhhuyen",
       "fullName": "Phạm Thanh Huyền",
       "email": "huyenpham@gmail.com",
@@ -86,6 +92,7 @@
     },
     {
       "id": 76,
+      "product": [],
       "username": "khanhtuan",
       "fullName": "Ngô Khánh Tuấn",
       "email": "tuanngo@gmail.com",
@@ -100,6 +107,7 @@
     },
     {
       "id": 77,
+      "product": [],
       "username": "lamnguyen",
       "fullName": "Nguyễn Lam",
       "email": "lamnguyen@gmail.com",
@@ -114,6 +122,7 @@
     },
     {
       "id": 78,
+      "product": [],
       "username": "letrinh",
       "fullName": "Lê Phương Trinh",
       "email": "trinhle@gmail.com",
@@ -137,7 +146,33 @@
       "status": true,
       "created_at": "2024-10-30T07:10:01.345Z",
       "updated_at": "",
-      "id": 79
+      "id": 79,
+      "product": [
+        {
+          "id": 5,
+          "product_name": "Tiếng Hàn Dành Cho Người Mới Bắt Đầu",
+          "unit_price": "140000",
+          "quantity": 1
+        },
+        {
+          "id": 4,
+          "product_name": "Học Tiếng Anh Căn Bản",
+          "unit_price": "120000",
+          "quantity": 1
+        },
+        {
+          "id": 4,
+          "product_name": "Học Tiếng Anh Căn Bản",
+          "unit_price": "120000",
+          "quantity": 1
+        },
+        {
+          "id": 4,
+          "product_name": "Học Tiếng Anh Căn Bản",
+          "unit_price": "120000",
+          "quantity": 1
+        }
+      ]
     },
     {
       "username": "12",
@@ -150,7 +185,8 @@
       "status": true,
       "created_at": "2024-10-30T22:50:09.452Z",
       "updated_at": "",
-      "id": 80
+      "id": 80,
+      "product": []
     },
     {
       "username": "12",
@@ -163,7 +199,22 @@
       "status": true,
       "created_at": "2024-10-30T22:53:57.594Z",
       "updated_at": "",
-      "id": 81
+      "id": 81,
+      "product": []
+    },
+    {
+      "username": "12",
+      "fullName": "12",
+      "email": "demo@gmail.com",
+      "password": "123456",
+      "phone": "11111111111",
+      "address": "",
+      "avatar": "",
+      "status": true,
+      "created_at": "2024-10-31T03:17:32.892Z",
+      "updated_at": "",
+      "product": [],
+      "id": 82
     }
   ],
   "categories": [
@@ -464,6 +515,114 @@
       "id": "1",
       "idUser": "1",
       "products": []
+    },
+    {
+      "idUser": 79,
+      "product": [
+        {
+          "id": 18,
+          "product_name": "12",
+          "unit_price": "1",
+          "quantity": 1
+        }
+      ],
+      "id": "1111111"
+    },
+    {
+      "idUser": 79,
+      "product": [
+        {
+          "id": 18,
+          "product_name": "12",
+          "unit_price": "1",
+          "quantity": 1
+        }
+      ],
+      "id": 16042946
+    },
+    {
+      "idUser": 79,
+      "product": [
+        {
+          "id": 18,
+          "product_name": "12",
+          "unit_price": "1",
+          "quantity": 1
+        }
+      ],
+      "id": 18937775
+    },
+    {
+      "idUser": 79,
+      "product": [
+        {
+          "id": 18,
+          "product_name": "12",
+          "unit_price": "1",
+          "quantity": 1
+        }
+      ],
+      "id": 86213623
+    },
+    {
+      "idUser": 79,
+      "product": [
+        {
+          "id": 18,
+          "product_name": "12",
+          "unit_price": "1",
+          "quantity": 1
+        }
+      ],
+      "id": 40318411
+    },
+    {
+      "idUser": 79,
+      "product": [
+        {
+          "id": 5,
+          "product_name": "Tiếng Hàn Dành Cho Người Mới Bắt Đầu",
+          "unit_price": "140000",
+          "quantity": 1
+        }
+      ],
+      "id": 94639648
+    },
+    {
+      "idUser": 79,
+      "product": [
+        {
+          "id": 4,
+          "product_name": "Học Tiếng Anh Căn Bản",
+          "unit_price": "120000",
+          "quantity": 1
+        }
+      ],
+      "id": 68484748
+    },
+    {
+      "idUser": 79,
+      "product": [
+        {
+          "id": 4,
+          "product_name": "Học Tiếng Anh Căn Bản",
+          "unit_price": "120000",
+          "quantity": 1
+        }
+      ],
+      "id": 99512966
+    },
+    {
+      "idUser": 79,
+      "product": [
+        {
+          "id": 4,
+          "product_name": "Học Tiếng Anh Căn Bản",
+          "unit_price": "120000",
+          "quantity": 1
+        }
+      ],
+      "id": 20355124
     }
   ],
   "orders": [

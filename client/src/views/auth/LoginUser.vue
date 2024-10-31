@@ -69,7 +69,7 @@
             <!-- Sign Up Link -->
             <p class="text-center mt-4 text-sm text-gray-500">
               Bạn chưa có tài khoản? 
-              <a href="/oauth/dang-ky?redirect=https%3A%2F%2Fsapochee.io.vn%2F" class="text-blue-600 hover:underline">
+              <a href="/register" class="text-blue-600 hover:underline">
                 Đăng ký ngay
               </a>
             </p>

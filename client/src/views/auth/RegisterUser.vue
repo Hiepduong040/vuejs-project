@@ -89,6 +89,7 @@
     status: true,
     created_at: "",
     updated_at: "",
+    product:[],
   });
   
   // Hàm xử lý đăng ký
@@ -135,6 +136,7 @@
       status: true,
       created_at: new Date().toISOString(),
       updated_at: "",
+      product:[]
     };
   
     try {
