@@ -2,7 +2,17 @@
   "users": [
     {
       "id": 70,
-      "product": [],
+      "product": [
+        {
+          "id": 5,
+          "product_name": "Tiếng Hàn Dành Cho Người Mới Bắt Đầu",
+          "unit_price": "140000",
+          "quantity": 2,
+          "image": [
+            "https://example.com/images/hoc_tieng_han.jpg"
+          ]
+        }
+      ],
       "username": "hiepduong",
       "fullName": "Dương Sỹ Hiệp",
       "email": "hiepduong0409@gmail.com",
@@ -694,6 +704,78 @@
         }
       ],
       "id": 82066622
+    },
+    {
+      "idUser": 70,
+      "product": [
+        {
+          "id": 3,
+          "product_name": "Làm Giàu Từ Chứng Khoán",
+          "unit_price": "200000",
+          "quantity": 1
+        }
+      ],
+      "id": 75178501
+    },
+    {
+      "idUser": 70,
+      "product": [
+        {
+          "id": 5,
+          "product_name": "Tiếng Hàn Dành Cho Người Mới Bắt Đầu",
+          "unit_price": "140000",
+          "quantity": 1
+        }
+      ],
+      "id": 74329280
+    },
+    {
+      "idUser": 70,
+      "product": [
+        {
+          "id": 5,
+          "product_name": "Tiếng Hàn Dành Cho Người Mới Bắt Đầu",
+          "unit_price": "140000",
+          "quantity": 1
+        }
+      ],
+      "id": 89141173
+    },
+    {
+      "idUser": 70,
+      "product": [
+        {
+          "id": 5,
+          "product_name": "Tiếng Hàn Dành Cho Người Mới Bắt Đầu",
+          "unit_price": "140000",
+          "quantity": 3
+        }
+      ],
+      "id": 51518623
+    },
+    {
+      "idUser": 70,
+      "product": [
+        {
+          "id": 2,
+          "product_name": "Nhà Đầu Tư Thông Minh",
+          "unit_price": "150000",
+          "quantity": 1
+        }
+      ],
+      "id": 76143442
+    },
+    {
+      "idUser": 70,
+      "product": [
+        {
+          "id": 5,
+          "product_name": "Tiếng Hàn Dành Cho Người Mới Bắt Đầu",
+          "unit_price": "140000",
+          "quantity": 2
+        }
+      ],
+      "id": 62218695
     }
   ],
   "orders": [

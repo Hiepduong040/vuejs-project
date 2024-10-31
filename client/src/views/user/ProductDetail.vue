@@ -75,6 +75,8 @@
               <label class="block mb-1">Quantity</label>
               <input
                 type="number"
+                v-model="quantity"
+                  min="1"
                 placeholder="1"
                 class="form-control w-24 p-2 border border-gray-300 rounded"
               />
@@ -102,7 +104,7 @@
   import { ref, onMounted } from "vue";
   import { useStore } from "vuex";
   import { useRoute, useRouter } from "vue-router";
-  
+  import Swal from "sweetalert2";
   const store = useStore();
   const route = useRoute();
   const product = ref({});
@@ -128,31 +130,35 @@
     router.push("/user/cart");
   }
   const addToCart = async () => {
-    const productToAdd = {
-      id: product.value.id,
-      product_name: product.value.product_name,
-      unit_price: product.value.unit_price,
-      quantity: quantity.value,
-      image:product.value.image
-    };
-  
-    // Lấy ID người dùng từ local storage
-    const user = JSON.parse(localStorage.getItem('user')); // Giả sử bạn lưu user dưới key 'user'
-    const userId = user ? user.id : null; // Lấy ID người dùng
-  
-    if (userId) {
-      try {
-        await store.dispatch("addProductToUser", { userId, product: productToAdd });
-        store.dispatch("addNewCart", productToAdd); 
-      } catch (error) {
-        console.error("Error adding product to user:", error);
-      }
-    } else {
-      console.error("User not found in local storage.");
-      // Có thể hiển thị thông báo cho người dùng nếu cần
-    }
+  const productToAdd = {
+    id: product.value.id,
+    product_name: product.value.product_name,
+    unit_price: product.value.unit_price,
+    quantity: quantity.value, // Sử dụng giá trị quantity từ input
+    image: product.value.image,
   };
-  
+
+  const user = JSON.parse(localStorage.getItem('user'));
+  const userId = user ? user.id : null;
+
+  if (userId) {
+    try {
+      await store.dispatch("addProductToUser", { userId, product: productToAdd });
+      store.dispatch("addNewCart", productToAdd);
+    } catch (error) {
+      console.error("Error adding product to user:", error);
+    }
+  } else {
+    Swal.fire({
+      icon: 'warning',
+      title: 'Vui lòng đăng nhập!',
+      text: 'Bạn cần đăng nhập để mua hàng!',
+      confirmButtonText: 'OK',
+    });
+    return;
+  }
+};
+
   // Thay đổi hình ảnh lớn khi nhấp vào hình thu nhỏ
   const changeImage = (img) => {
     selectedImage.value = img;

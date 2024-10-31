@@ -10,6 +10,7 @@ import UserPrivate from "@/views/user/UserPrivate.vue";
 import WishList from "@/views/user/WishList.vue";
 import CategoryDetail from "@/views/user/CategoryDetail.vue";
 import ProductDetail from "@/views/user/ProductDetail.vue";
+import Payment from "@/views/user/Payment.vue";
 const userRoutes = [
   {
     path: "/",
@@ -27,6 +28,11 @@ const userRoutes = [
           {
             path: "cart",
             component: Cart,
+          },
+          {
+            path: "payment",  
+            name: "payment",
+            component: Payment,
           },
           {
             path: "account",

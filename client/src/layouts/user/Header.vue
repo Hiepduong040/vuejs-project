@@ -18,11 +18,11 @@
             </a>
           </div>
           <div class="flex space-x-4">
-            <div class="relative" @mouseenter="showDropdown = true" @mouseleave="showDropdown = false">
-              <a href="#" class="flex items-center text-gray-600 hover:text-gray-800">
+            <div class="relative">
+              <a href="#" @click.prevent="toggleDropdown" class="flex items-center text-gray-600 hover:text-gray-800">
                 <i class="bx bx-user"></i><span class="ml-1">Account</span>
               </a>
-              <div v-if="showDropdown" class="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg">
+              <div v-if="showDropdown" class="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-lg" @click="handleDropdownClick">
                 <div class="px-4 py-2 text-gray-800">
                   <template v-if="user">
                     <a href="#" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Chi tiết tài khoản</a>
@@ -34,7 +34,8 @@
                 </div>
               </div>
             </div>
-            <a  href="/user/cart" class="flex items-center text-gray-600 hover:text-gray-800">
+
+            <a @click="checkLoginAndRedirect" class="flex  cursor-pointer items-center text-gray-600 hover:text-gray-800">
               <i class="bx bx-cart"></i><span class="ml-1">Cart</span>
             </a>
             <SearchHomeInput class="mt-1.5" />
@@ -52,7 +53,7 @@
         <nav id="navbar" class="flex-grow">
           <ul class="flex space-x-10 justify-center items-center">
             <li>
-              <a href="#home" class="text-gray-600 hover:text-blue-600">Home</a>
+              <a href="/" class="text-gray-600 hover:text-blue-600">Home</a>
             </li>
             <li class="relative group">
               <a href="#pages" class="text-gray-600 hover:text-blue-600">Pages</a>
@@ -78,26 +79,34 @@
       </div>
     </header>
   </div>
-  
 </template>
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
-import { useRoute, useRouter } from "vue-router";
+import { useRouter } from "vue-router";
+import Swal from 'sweetalert2';
 
 const router = useRouter();
 const isFixed = ref(false);
 const previousScroll = ref(0);
 const showDropdown = ref(false);
 const user = JSON.parse(localStorage.getItem("user")); // Lấy thông tin người dùng từ localStorage
-const gotoCart = ()=>{
-    router.push("/user/cart");
-  }
+
 function handleScroll() {
   const currentScroll = window.pageYOffset;
   isFixed.value = currentScroll > previousScroll.value && currentScroll > 40;
   previousScroll.value = currentScroll;
 }
+
+function toggleDropdown() {
+  showDropdown.value = !showDropdown.value;
+}
+
+function handleDropdownClick() {
+ 
+}
+
+
 
 function login() {
   // Chuyển hướng tới trang đăng nhập
@@ -107,7 +116,20 @@ function login() {
 function logout() {
   localStorage.removeItem("user"); // Xóa thông tin người dùng
   window.location.reload(); // Làm mới trang để cập nhật trạng thái
+  showDropdown.value = false; // Ẩn dropdown khi đăng xuất
   window.location.href = "/";
+}
+
+function checkLoginAndRedirect() {
+  if (!user) {
+    Swal.fire({
+      icon: 'warning',
+      title: 'Vui lòng đăng nhập để tiếp tục sử dụng!',
+      confirmButtonText: 'OK'
+    });
+  } else {
+    router.push("/user/cart"); // Chuyển hướng đến giỏ hàng nếu đã đăng nhập
+  }
 }
 
 onMounted(() => {
